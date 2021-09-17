@@ -1,0 +1,56 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: aliceblue;
+    font-family: Helvetica, sans-serif;
+}
+
+.main-container {
+    display: flex;
+    width: 512px;
+    height: 512px;
+
+}
+
+.controls {
+    padding: 10px;
+}
+
+.center {
+    /* display: flex; */
+}
+
+.button {
+    background-color: lightcoral;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.column {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+}
+
+h1 {
+    font-size: 58px;
+}
+
+.pixel {
+    background-color: black;
+    min-width: 1px;
+    min-height: 1px;
+    flex: 1;
+}
+
+.colored {
+    background-color: gray;
+}
+
