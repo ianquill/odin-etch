@@ -3,12 +3,12 @@ console.log("Hello World");
 const mainContainer = document.querySelector(".main-container");
 const columns = document.querySelectorAll(".column");
 
-
 let firstLoad = true;
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
-        parent.removeChild(parent.firstChild)
+        parent.removeChild(parent.firstChild);
+        console.log('removed grid');
     }
 };
 
@@ -32,20 +32,25 @@ function buildGrid(size) {
 
         }
     }
-    
+    const pixels = document.querySelectorAll(".pixel");
+    pixels.forEach((div) => {
+
+    div.addEventListener('mouseover', colorPixel);
+
+});
+
     firstLoad = false;
 }
 
 buildGrid(16);
-
-const grid = document.querySelectorAll('.pixel');
 
 function colorPixel(pixel) {
     this.classList.add("colored");
 }
 
 function clearGrid() {
-    grid.forEach((div) => {
+    const pixels = document.querySelectorAll(".pixel");
+    pixels.forEach((div) => {
         div.classList.remove("colored");
         
     });
@@ -58,16 +63,12 @@ const sizeButton = document.querySelectorAll('.grid-size');
 sizeButton.forEach((button) => {
     button.addEventListener('click', () => {
         buildGrid(button.id);
-        console.log("button id is ");
+        console.log("button id is "+button.id);
     });
     
 });
 
-
-const pixels = document.querySelectorAll(".pixel");
-pixels.forEach((div) => {
-
-    div.addEventListener('mouseover', colorPixel);
-
+const debug = document.querySelector("#remove");
+debug.addEventListener('click', () => {
+    removeAllChildNodes(mainContainer)
 });
-
