@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 const mainContainer = document.querySelector(".main-container");
 const columns = document.querySelectorAll(".column");
 
@@ -34,10 +32,8 @@ function buildGrid(size) {
     }
     const pixels = document.querySelectorAll(".pixel");
     pixels.forEach((div) => {
-
-    div.addEventListener('mouseover', colorPixel);
-
-});
+        div.addEventListener('mouseover', colorPixel);
+    });
 
     firstLoad = false;
 }
@@ -56,6 +52,8 @@ function clearGrid() {
     });
 };
 
+// buttons
+
 const clearButton = document.querySelector("#clear");
 clearButton.addEventListener('click', clearGrid);
 
@@ -66,9 +64,4 @@ sizeButton.forEach((button) => {
         console.log("button id is "+button.id);
     });
     
-});
-
-const debug = document.querySelector("#remove");
-debug.addEventListener('click', () => {
-    removeAllChildNodes(mainContainer)
 });
