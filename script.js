@@ -2,6 +2,7 @@ const mainContainer = document.querySelector(".main-container");
 const columns = document.querySelectorAll(".column");
 
 let firstLoad = true;
+let randomColorMode = false;
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -40,14 +41,28 @@ function buildGrid(size) {
 
 buildGrid(16);
 
+function getRandomColor() {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    let string = "#" + randomColor;
+    return string;
+}
+
 function colorPixel(pixel) {
+    if (randomColorMode) {
+        this.style.backgroundColor = getRandomColor();
+    } else {
+        this.style.backgroundColor = "#6b6b6b";
+    }
     this.classList.add("colored");
+    this.classList.add("blank");
 }
 
 function clearGrid() {
     const pixels = document.querySelectorAll(".pixel");
     pixels.forEach((div) => {
+        div.style.backgroundColor = "#000000";
         div.classList.remove("colored");
+        div.classList.add('blank');
         
     });
 };
@@ -65,3 +80,8 @@ sizeButton.forEach((button) => {
     });
     
 });
+
+const randomButton = document.querySelector(".random-color")
+randomButton.addEventListener('click', () => {
+    randomColorMode = !randomColorMode;
+})

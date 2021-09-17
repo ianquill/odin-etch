@@ -51,6 +51,9 @@ h1 {
 }
 
 .colored {
-    background-color: gray;
+    
 }
 
+.blank {
+    background-color: black;
+}
