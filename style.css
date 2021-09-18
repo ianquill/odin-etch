@@ -7,6 +7,11 @@ body {
 
     background-color: aliceblue;
     font-family: Helvetica, sans-serif;
+
+    border: 2px black solid;
+    border-radius: 25px;
+    padding: 20px;
+    padding-bottom: 100px;
 }
 
 .main-container {
@@ -18,17 +23,31 @@ body {
 
 .controls {
     padding: 10px;
+    padding-bottom: 3r0px;
 }
 
 .center {
-    /* display: flex; */
+    display: flex;
+    gap: 20px;
 }
+
+
 
 .button {
     background-color: lightcoral;
     border: none;
     border-radius: 5px;
     padding: 10px;
+
+    transition: all 75ms;
+}
+
+.hover {
+    transform: scale(1.1);
+}
+
+.click {
+    filter: brightness(85%);
 }
 
 .column {
@@ -41,13 +60,15 @@ body {
 
 h1 {
     font-size: 72px;
+    margin: 0;
 }
 
 .pixel {
-    background-color: black;
+    background-color: white;
     min-width: 1px;
     min-height: 1px;
     flex: 1;
+
 }
 
 .colored {
@@ -56,4 +77,20 @@ h1 {
 
 .blank {
     background-color: black;
+}
+
+.color-picker {
+    height: 512px;
+    width: 200px;
+    border: 2px black solid;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#colorPicker {
+    border: 0;
+    flex: 1;
 }

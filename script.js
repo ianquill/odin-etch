@@ -11,6 +11,9 @@ function removeAllChildNodes(parent) {
     }
 };
 
+// function buildColorPicker() {
+    
+// }
 
 function buildGrid(size) {
 
@@ -60,7 +63,7 @@ function colorPixel(pixel) {
 function clearGrid() {
     const pixels = document.querySelectorAll(".pixel");
     pixels.forEach((div) => {
-        div.style.backgroundColor = "#000000";
+        div.style.backgroundColor = "white";
         div.classList.remove("colored");
         div.classList.add('blank');
         
@@ -81,7 +84,30 @@ sizeButton.forEach((button) => {
     
 });
 
-const randomButton = document.querySelector(".random-color")
+const randomButton = document.querySelector(".random-color");
 randomButton.addEventListener('click', () => {
     randomColorMode = !randomColorMode;
 })
+
+function removeTransitionHover(e) {
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('hover');
+}
+
+function removeTransitionClick(e) {
+    if (e.propertyName !== 'filter') return;
+    this.classList.remove('click');
+}
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener('mouseover', () => {
+        button.classList.add('hover');
+    });
+    button.addEventListener('transitionend', removeTransitionHover)
+    
+    button.addEventListener('click', () => {
+        button.classList.add('click');
+    });
+    button.addEventListener('transitionend', removeTransitionClick)
+});
